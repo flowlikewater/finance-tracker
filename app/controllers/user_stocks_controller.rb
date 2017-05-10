@@ -69,7 +69,8 @@ class UserStocksController < ApplicationController
   # DELETE /user_stocks/1
   # DELETE /user_stocks/1.json
   def destroy
-    @user_stock.destroy
+    user_stock = UserStock.find_by_user_id_and_stock_id(current_user.id, @user_stock.id)
+    user_stock.destroy
     respond_to do |format|
       format.html { redirect_to my_portfolio_path, notice: 'Stock was successfully removed from portfolio.' }
       format.json { head :no_content }
@@ -77,12 +78,10 @@ class UserStocksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user_stock
-      @user_stock = UserStock.find(params[:id])
+      @user_stock = current_user.stocks.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_stock_params
       params.require(:user_stock).permit(:user_id, :stock_id)
     end

@@ -1,3 +1,39 @@
+$navbar-default-bg: #c2ead1;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-fixed-top {
+  margin-bottom: 50px;
+}
+
+#homepage {
+  background-image: asset-url('plant.jpg');
+  background-size: cover;
+  height: 490px;
+  padding-left: 80px;
+  padding-top: 15px;
+}
+
+#green {
+  color: green
+}
+
+#abouttitle {
+  font-size: 40px;
+  font-family: Calibri;
+  position: relative;
+  color: white;
+}
+
+#aboutp {
+  font-size: 25px;
+  line-height: 30px;
+  width: 50%;
+  font-family: Calibri;
+  padding-top: 120px;
+}
+
 .results-block {
   display: inline-block;
 }
@@ -26,4 +62,12 @@
   .btn-danger:hover {
     background-color: darken(#d9534f, 20%) !important;
   }
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
